@@ -1,0 +1,10 @@
+name: Use Starter Workflow
+
+on: [push]
+
+jobs:
+  use-starter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call starter workflow
+        uses: kbakdev/starter-workflows/.github/workflows/starter-workflow.yaml@main
