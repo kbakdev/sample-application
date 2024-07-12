@@ -1,6 +1,6 @@
 name: Use Starter Workflow
 
-on: [push]
+on: [workflow_dispatch]
 
 jobs:
   use-starter:
