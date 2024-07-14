@@ -5,3 +5,9 @@ on: [push]
 jobs:
   use-starter:
     uses: kbakdev/starter-workflows/.github/workflows/starter-workflow.yaml@main
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build
+        id: build workflow
+        run: echo "build_id=$RANDOM" >> $GITHUB_OUTPUT
