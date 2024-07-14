@@ -3,8 +3,5 @@ name: Use Starter Workflow
 on: [push]
 
 jobs:
-  my_job:
-    name: Starter Workflow
-    runs-on: ubuntu-22.04
   use-starter:
     uses: kbakdev/starter-workflows/.github/workflows/starter-workflow.yaml@main
