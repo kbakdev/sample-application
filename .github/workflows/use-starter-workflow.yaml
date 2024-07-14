@@ -1,26 +1,13 @@
 name: Use Starter Workflow
 
-on: [push]
+on:
+  pull_request:
+    branches:
+    - main
 
 jobs:
+  my_job:
+    name: Starter Workflow
+    runs-on: ubuntu-22.04
   use-starter:
     uses: kbakdev/starter-workflows/.github/workflows/starter-workflow.yaml@main
-  build:
-    runs-on: ubuntu-latest
-    outputs:
-      build_id: ${{ steps.build_step.outputs.build_id }}
-    steps:
-      - name: Build
-        id: build workflow
-        run: echo "build_id=$RANDOM" >> $GITHUB_OUTPUT
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Deploying build ${{ needs.build.outputs.build_id }}"
-  debug:
-    needs: [build, deploy]
-    runs-on: ubuntu-latest
-    if: ${{ failure() }}
-    steps:
-      - run: echo "Failed to build and deploy"
